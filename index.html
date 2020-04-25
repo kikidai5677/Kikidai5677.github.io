@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0033d354dd.js" crossorigin="anonymous"></script>
+
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Vue: <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+    <script src="main.js"></script>
+</head>
+<body>
+<div class="page-area" id="app">
+    <div class="splash-area">
+        <div class="splash-image-area"></div>
+
+        <div class="content">
+            <div class="name-area">
+                <h1 class="name">{{ name }}</h1>
+                <div class="title">{{ title }}</div>
+            </div>
+
+            <div class="social-area">
+                <div v-for="item in social" class="social-item">
+                    <a v-bind:href="item.link">
+                        <i v-bind:class="item.icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="project-area">
+        <div class="content">
+            <div v-for="project in projects" class="project-row">
+                <div class="project-image-area">
+                    <div class="project-image-container">
+                        <img v-bind:src="project.img_path">
+                    </div>
+                </div>
+                <div class="project-text-area">
+                    <div class="project-text-container">
+                        <div class="project-title">{{ project.title }}</div>
+                        <div class="seperator"></div>
+                        <div class="project-text"><span>{{ project.description }} <a v-if="project.link != '#'" v-bind:href="project.link">Link</a></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="video-area">
+        <iframe width="560" height="315" v-bind:src="video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="chat-area">
+        <div class="content">
+            <div class="chat-icon-area">
+                <i class="far fa-comments"></i>
+            </div>
+
+            <div class="chat-row-area">
+                <div v-for="item in chat" class="chat-row">
+                    <div class="chat-text">{{ item }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="content">
+            <div class="social-area">
+                <div v-for="item in social" class="social-item">
+                    <a v-bind:href="item.link">
+                        <i v-bind:class="item.icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
